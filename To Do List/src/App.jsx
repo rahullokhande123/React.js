@@ -25,6 +25,7 @@ const App=()=>{
             <tr>
                 <td>{sno}</td>
                 <td>{key.task}</td>
+                <button onClick={myDel}>Delet</button>
             </tr>
             </>
         )
@@ -35,7 +36,7 @@ const App=()=>{
         <h1>TO DO List</h1>
         <input type="text" value={input} onChange={(e)=>{setInput(e.target.value)}} />
         <button onClick={taskAdd}>Add</button>
-        <button onClick={myDel}>Delet</button>
+        
 
         <hr size="10px" color="black" />
         <tr>
