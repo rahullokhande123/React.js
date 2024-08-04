@@ -15,7 +15,12 @@ const App=()=>{
         setInput("")
     }
 
-    
+// For pop Method ====================
+
+    // const myDel=()=>{
+    //     mydis(overDelTask({id: Date.now(), task:input}))
+    // }
+
     const myDel=(id)=>{
         mydis(delTask(id))
     }
