@@ -12,15 +12,28 @@ const myToSlice=createSlice({
             state.task.push(actions.payload)
         },
 
-// First Delete Program Way ================
+// First Delete Program Way(Esse Last Wala Hi Delete HOte Jayega) ================
 
         // overDelTask:(state,actions)=>{
         //     state.task.pop(actions.payload)
         // }
+// Seconde Delete Program Way ================
+        // delTask:(state,actions)=>{
+        //     state.task=state.task.filter(item=> item.id!=actions.payload)
+        // }
 
-        delTask:(state,actions)=>{
-            state.task=state.task.filter(item=> item.id!=actions.payload)
-        }
+// Third Delete Program Way ================
+
+          delTask:(state,actions)=>{
+            state.task=state.task.filter((key)=>{
+                if(key.id==actions.payload){
+                    return false
+                }
+                else{
+                    return true
+                }
+            })
+          }
 
     }
 })

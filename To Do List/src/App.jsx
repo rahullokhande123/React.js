@@ -14,6 +14,8 @@ const App=()=>{
         mydis(overTask({id: Date.now(), task:input}))
         setInput("")
     }
+
+    
     const myDel=(id)=>{
         mydis(delTask(id))
     }
