@@ -6,6 +6,8 @@ import { delTask, overTask ,compTask , taskUncom} from "./toDoSlice";
 const App=()=>{
 
     const [input,setInput]=useState("")
+    const [mybtn,setMybtn]=useState(true);
+    const [editID,setEditID]=useState("");
 
     const mySelector=useSelector((state)=>state.myTask.task);
     const mydis=useDispatch();
@@ -49,6 +51,9 @@ const App=()=>{
                 </td>
                 <td>
                     <button onClick={()=>{workUncomp(key.id)}}>Uncomplete</button>
+                </td>
+                <td>
+                    <button onClick={()=>{workEdit(key.id,key.task)}}>Edit</button>
                 </td>
 
             </tr>
