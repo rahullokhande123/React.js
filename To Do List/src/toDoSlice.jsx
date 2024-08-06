@@ -42,9 +42,18 @@ const myToSlice=createSlice({
                     state.task[i].complete=true;
                 }
             }
-          }
+          },
+
+          taskUncom:(state,actions)=>{
+
+            for(var i=0; i<state.task.length; i++){
+                if(state.task[i].id==actions.payload){
+                    state.task[i].complete=false;
+                }
+            }
+        }
 
     }
 })
 export default myToSlice.reducer;
-export const {overTask,delTask,compTask}=myToSlice.actions;
+export const {overTask,delTask,compTask,taskUncom}=myToSlice.actions;
