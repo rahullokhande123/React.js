@@ -64,4 +64,4 @@ const myToSlice=createSlice({
     }
 })
 export default myToSlice.reducer;
-export const {overTask,delTask,compTask,taskUncom}=myToSlice.actions;
+export const {overTask,delTask,compTask,taskUncom,editSave}=myToSlice.actions;
