@@ -33,9 +33,18 @@ const myToSlice=createSlice({
                     return true
                 }
             })
+          },
+// Complete ================================
+
+          compTask:(state,actions)=>{
+            for(var i=0; i<state.task.length; i++){
+                if(state.task[i].id == actions.payload){
+                    state.task[i].complete=true;
+                }
+            }
           }
 
     }
 })
 export default myToSlice.reducer;
-export const {overTask,delTask}=myToSlice.actions;
+export const {overTask,delTask,compTask}=myToSlice.actions;

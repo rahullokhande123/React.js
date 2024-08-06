@@ -1,7 +1,7 @@
 
 import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
-import { delTask, overTask } from "./toDoSlice";
+import { delTask, overTask ,compTask } from "./toDoSlice";
 
 const App=()=>{
 
@@ -11,7 +11,7 @@ const App=()=>{
     const mydis=useDispatch();
 
     const taskAdd=()=>{
-        mydis(overTask({id: Date.now(), task:input}))
+        mydis(overTask({id: Date.now(), task:input , complete:false}))
         setInput("")
     }
 
@@ -24,6 +24,11 @@ const App=()=>{
     const myDel=(id)=>{
         mydis(delTask(id))
     }
+    
+    const recComp=(id)=>{
+        mydis(compTask(id))
+    }
+
     let sno=0
     const ans=mySelector.map((key)=>{
         sno++
@@ -31,8 +36,14 @@ const App=()=>{
             <>
             <tr>
                 <td>{sno}</td>
-                <td>{key.task}</td>
+                <td>{key.complete? <span style={{textDecoration:"line-through",color:"black"}}>{key.task}</span> : key.task}</td>
+                <td>
                 <button onClick={()=>{myDel(key.id)}}>Delet</button>
+                </td>
+                <td>
+                    <button onClick={()=>{recComp(key.id)}}>Complete</button>
+                </td>
+
             </tr>
             </>
         )
