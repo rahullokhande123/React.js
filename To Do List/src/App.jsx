@@ -35,6 +35,19 @@ const App=()=>{
         mydis(taskUncom(id))
     }
 
+    const workEdit=(id,task)=>{
+        setInput(task)
+        setMybtn(false)
+        setEditID(id)
+
+    }
+
+    const editdataSave=(myid,mywork)=>{
+        mydis(editSave({id:myid,task:mywork}))
+        setMybtn(true);
+        setInput("")
+    }
+
     let sno=0
     const ans=mySelector.map((key)=>{
         sno++
@@ -65,13 +78,15 @@ const App=()=>{
         <>
         <h1>TO DO List</h1>
         <input type="text" value={input} onChange={(e)=>{setInput(e.target.value)}} />
-        <button onClick={taskAdd}>Add</button>
+        {mybtn? (<button onClick={taskAdd}>Add</button>) : (<button onClick={()=>{editdataSave(editID ,input)}}>Edit Save</button>) }
         
 
         <hr size="10px" color="black" />
         <tr>
             <th>S No.</th>
             <th>Task</th>
+            <th></th>
+            <th></th>
         </tr>
         {ans}
         </>
